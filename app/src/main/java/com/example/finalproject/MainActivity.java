@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     //int test;
+    //int second test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
