@@ -8,7 +8,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+// Second commit test
+
 public class MainActivity extends AppCompatActivity {
+
+    //int test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
