@@ -1,6 +1,9 @@
 package com.example.finalproject;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,8 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class IntroPage1 extends AppCompatActivity {
-
+public class IntroPage1 extends AppCompatActivity implements View.OnClickListener {
+    Button btnContinue1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,5 +23,18 @@ public class IntroPage1 extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        initialize();
+    }
+
+    private void initialize() {
+        btnContinue1 = findViewById(R.id.btnContinue1);
+        btnContinue1.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(this, IntroPage2.class);
+        startActivity(intent);
     }
 }
