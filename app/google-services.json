@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "904734940795",
+    "firebase_url": "https://dinewiseprj-default-rtdb.firebaseio.com",
+    "project_id": "dinewiseprj",
+    "storage_bucket": "dinewiseprj.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904734940795:android:aa562587ed913bf1274cde",
+        "android_client_info": {
+          "package_name": "com.example.finalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD53u-2gi8oy_hNOmbxoyNdupC7VctAw24"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
