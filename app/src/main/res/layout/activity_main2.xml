@@ -8,20 +8,32 @@
     tools:context=".MainActivity2">
 
     <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/imgLocation"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/location"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="20dp"
-        />
+        app:srcCompat="@drawable/localisation" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:text="Discover
         \nrecommended
         \nrestaurants near you,
@@ -29,11 +41,9 @@
         android:textColor="@color/black"
         android:textSize="30dp"
         android:textStyle="bold"
+        android:fontFamily="@font/kanit_medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgLocation"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/imgLocation" />
 
 
     <Button

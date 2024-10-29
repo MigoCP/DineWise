@@ -8,20 +8,32 @@
     tools:context=".MainActivity3">
 
     <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
         android:id="@+id/imgLocation"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/location"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="20dp"
-        />
+        app:srcCompat="@drawable/bell_introduction_page" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/kanit_medium"
         android:text="Get the latest reviews
         \nand exclusive deals
         \nfor your favorite
@@ -30,10 +42,7 @@
         android:textSize="30dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgLocation"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/imgLocation" />
 
 
     <Button

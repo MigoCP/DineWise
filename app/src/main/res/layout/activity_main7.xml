@@ -8,6 +8,17 @@
     tools:context=".MainActivity7">
 
     <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
         android:id="@+id/imgLogo"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -21,7 +32,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="cursive"
+        android:fontFamily="@font/lobster_regular"
         android:text="DineWise"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -34,13 +45,13 @@
 
     <ImageView
         android:id="@+id/imgNotification"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvTitle"
         app:layout_constraintTop_toTopOf="@+id/tvTitle"
-        app:srcCompat="@drawable/location" />
+        app:srcCompat="@drawable/notification" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -54,19 +65,39 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="300dp"
             android:layout_height="40dp"
+            android:id="@+id/searchfield"
             android:layout_gravity="center"
             android:hint="Search" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/textTopRestaurants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Top Restaurants"
+        android:fontFamily="@font/kanit_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        android:shadowColor="@color/teal"
+        android:shadowRadius="4"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:gravity="start"
+        android:textSize="20sp"
+        android:layout_marginTop="100dp"
+        />
+
     <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
+        android:id="@+id/horizontalScrollViewTopRestaurants"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/textTopRestaurants">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -80,10 +111,14 @@
                 android:padding="8dp">
 
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="100dp"
-                    android:contentDescription="Restaurant Image"
-                    android:src="@drawable/food1" />
+                    android:src="@drawable/food1"
+                    android:background="@drawable/rounded_image_border"
+                    android:scaleType="centerCrop"
+                    android:padding="4dp"
+                    android:clipToOutline="true"
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -102,9 +137,13 @@
                 android:padding="8dp">
 
                 <ImageView
-                    android:layout_width="100dp"
+                    android:layout_width="120dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/food2" />
+                    android:src="@drawable/food2"
+                    android:background="@drawable/rounded_image_border"
+                    android:scaleType="centerCrop"
+                    android:padding="4dp"
+                    android:clipToOutline="true"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -120,20 +159,118 @@
     </HorizontalScrollView>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textNearMe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Top restaurants" />
+        android:text="Near me"
+        android:fontFamily="@font/kanit_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        android:shadowColor="@color/teal"
+        android:shadowRadius="4"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollViewTopRestaurants"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        android:gravity="start"
+        android:textSize="20sp"
+        android:layout_marginTop="0dp"
+        />
+
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollViewNearMe"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNearMe">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/labanquise"
+                    android:background="@drawable/rounded_image_border"
+                    android:scaleType="centerCrop"
+                    android:padding="4dp"
+                    android:clipToOutline="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="La Banquise"
+                    android:textAlignment="center"
+                    android:textColor="@color/teal"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/schwartz"
+                    android:background="@drawable/rounded_image_border"
+                    android:scaleType="centerCrop"
+                    android:padding="4dp"
+                    android:clipToOutline="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Schwartz's Deli"
+                    android:textAlignment="center"
+                    android:textColor="@color/teal"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+
+
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/teal"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:menu="@menu/bottom_menu"
+        app:labelVisibilityMode="labeled"
         app:itemIconTint="@color/teal"
-        app:itemTextColor="@color/teal" />
+        app:itemTextColor="@color/teal"
+        app:itemIconSize="60dp"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
