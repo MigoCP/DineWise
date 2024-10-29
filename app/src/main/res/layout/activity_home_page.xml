@@ -5,8 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity7">
-
+    tools:context=".HomePage">
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="0dp"
@@ -245,10 +244,6 @@
 
         </LinearLayout>
     </HorizontalScrollView>
-
-
-
-
 
     <View
         android:layout_width="0dp"

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity3">
+    tools:context=".FirstPage">
 
     <ImageView
         android:id="@+id/backgroundImage"
@@ -19,37 +19,51 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imgLocation"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="100dp"
+        android:id="@+id/imgLogo"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/bell_introduction_page" />
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:fontFamily="@font/kanit_medium"
-        android:text="Get the latest reviews
-        \nand exclusive deals
-        \nfor your favorite
-        \nrestaurants."
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/lobster_regular"
+        android:text="DineWise"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="70dp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgLocation" />
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
 
+    <ImageView
+        android:id="@+id/imgStars"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="100dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintWidth_percent="0.8"
+        app:srcCompat="@drawable/stars_open_page" />
 
     <Button
-        android:id="@+id/btnContinue"
+        android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="CONTINUE"
+        android:text="LET'S START"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
