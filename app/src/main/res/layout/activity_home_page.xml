@@ -52,6 +52,18 @@
         app:layout_constraintTop_toTopOf="@+id/tvTitle"
         app:srcCompat="@drawable/notification" />
 
+    <ImageView
+        android:id="@+id/imgLogOut"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgNotification"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgNotification"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/log_out_user"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="25dp"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
