@@ -52,14 +52,15 @@
         app:layout_constraintTop_toTopOf="@+id/tvTitle"
         app:srcCompat="@drawable/notification" />
 
-    <ImageView
-        android:id="@+id/imgLogOutH"
+    <Button
+        android:id="@+id/btnLogOut"
         android:layout_width="30dp"
         android:layout_height="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/imgNotification"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgNotification"
         app:layout_constraintTop_toTopOf="parent"
+        android:background="@android:color/transparent"
         app:srcCompat="@drawable/log_out_user"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="25dp"/>
@@ -280,14 +281,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/bottom_menu"
-        app:labelVisibilityMode="labeled"
+        app:itemIconSize="80dp"
         app:itemIconTint="@color/teal"
         app:itemTextColor="@color/teal"
-        app:itemIconSize="60dp"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
