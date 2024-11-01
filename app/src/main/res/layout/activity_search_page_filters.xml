@@ -8,16 +8,17 @@
     tools:context=".SearchPageFilters">
 
 
-
     <ImageView
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
         android:src="@drawable/background"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imgLogo"
@@ -133,7 +134,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="150dp"
         android:fontFamily="@font/kanit_medium"
         android:gravity="start"
         android:shadowColor="@color/teal"
@@ -149,31 +150,72 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/kanit_medium"
         android:gravity="start"
         android:shadowColor="@color/teal"
         android:shadowRadius="4"
-        android:text="Needs to define how to do the filters... \n in the backend code.... "
+        android:text="Needs to define how to do the filters...
+        \nin the backend code....I put here as Spinners, but we
+        \ncan use:radio button, checkbutton, seekbar "
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textSearchBy" />
 
 
+    <Spinner
+        android:id="@+id/spinnerTypeFood"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:entries="@array/typefood_options"
+        app:layout_constraintTop_toBottomOf="@+id/textSearchBy"
+        android:layout_marginTop="90dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Spinner
+        android:id="@+id/spinnerDistance"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:entries="@array/distance_options"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeFood"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Spinner
+        android:id="@+id/spinnerPrice"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:entries="@array/price_options"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerDistance"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Spinner
+        android:id="@+id/spinnerRating"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:entries="@array/rating_options"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPrice"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
         android:id="@+id/btnSearchFilters"
         android:layout_width="150dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginTop="10dp"
         android:backgroundTint="@color/teal"
         android:text="SEARCH"
         android:textColor="@color/yellow"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerRating"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
