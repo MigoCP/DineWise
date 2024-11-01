@@ -8,7 +8,6 @@
     tools:context=".SearchPage">
 
     <ImageView
-        android:id="@+id/backgroundImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -118,33 +117,43 @@
         android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:startIconDrawable="@drawable/tabview_search"
+        app:startIconScaleType="fitStart"
+        app:startIconTint="@color/teal"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/searchfield"
-            android:layout_width="350dp"
+            android:layout_width="365dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:hint="Search" />
+            android:background="@drawable/custom_border"
+            android:hint="Search"
+            android:paddingStart="40dp"
+            android:textColorHint="@color/teal"
+
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textNearbyRestaurants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nearby Restaurants"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="180dp"
         android:fontFamily="@font/kanit_medium"
-        app:layout_constraintStart_toStartOf="parent"
+        android:gravity="start"
         android:shadowColor="@color/teal"
         android:shadowRadius="4"
-        app:layout_constraintTop_toBottomOf="@+id/imgLogo"
+        android:text="Nearby Restaurants"
         android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_marginStart="20dp"
-        android:gravity="start"
         android:textSize="20sp"
-        android:layout_marginTop="180dp"
-        />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollViewTopRestaurants"
