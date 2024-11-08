@@ -15,6 +15,9 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".AdminTabViewUsers"
+            android:exported="false" />
+        <activity
             android:name=".AdminTabViewRestaurants"
             android:exported="false" />
         <activity

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminTabViewRestaurants">
+    tools:context=".AdminTabViewUsers">
 
     <ImageView
         android:layout_width="0dp"
@@ -42,7 +42,7 @@
         android:layout_marginTop="20dp" />
 
     <TextView
-        android:id="@+id/tvTitleTabViewAdminRest"
+        android:id="@+id/tvTitleTabViewAdminUsers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -51,7 +51,7 @@
         android:gravity="center"
         android:shadowColor="@color/teal"
         android:shadowRadius="4"
-        android:text="Restaurants "
+        android:text="Users "
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -67,7 +67,7 @@
         app:cardBackgroundColor="@android:color/transparent"
         app:cardCornerRadius="12dp"
         app:cardElevation="0dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitleTabViewAdminRest"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleTabViewAdminUsers"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -78,7 +78,7 @@
             android:padding="16dp">
 
             <Spinner
-                android:id="@+id/spinnerListRestaurants"
+                android:id="@+id/spinnerListUsers"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"
@@ -87,7 +87,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:id="@+id/btnSAddRestaurant"
+                android:id="@+id/btnSAddUser"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="60dp"
@@ -95,25 +95,25 @@
                 android:background="@drawable/button_image_background_transparent"
                 android:scaleType="centerInside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerListRestaurants"
-                app:srcCompat="@drawable/add_restaurant" />
+                app:layout_constraintTop_toBottomOf="@+id/spinnerListUsers"
+                app:srcCompat="@drawable/add_user" />
 
             <TextView
-                android:id="@+id/textAddRestaurant"
+                android:id="@+id/textAddUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/kanit_light"
                 android:gravity="center"
-                android:text="Add a restaurant"
+                android:text="Add user"
                 android:textColor="@color/teal"
                 android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/btnSAddRestaurant"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerListRestaurants" />
+                app:layout_constraintStart_toEndOf="@+id/btnSAddUser"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerListUsers" />
 
             <ImageButton
-                android:id="@+id/btnSEditRestaurant"
+                android:id="@+id/btnEditUser"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="60dp"
@@ -121,7 +121,7 @@
                 android:background="@drawable/button_image_background_transparent"
                 android:scaleType="centerInside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnSAddRestaurant"
+                app:layout_constraintTop_toBottomOf="@+id/btnSAddUser"
                 app:srcCompat="@drawable/edit" />
 
             <TextView
@@ -132,14 +132,14 @@
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/kanit_light"
                 android:gravity="center"
-                android:text="Edit a restaurant"
+                android:text="Edit user"
                 android:textColor="@color/teal"
                 android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/btnSEditRestaurant"
-                app:layout_constraintTop_toBottomOf="@+id/btnSAddRestaurant" />
+                app:layout_constraintStart_toEndOf="@+id/btnEditUser"
+                app:layout_constraintTop_toBottomOf="@+id/btnSAddUser" />
 
             <ImageButton
-                android:id="@+id/btnSDeleteRestaurant"
+                android:id="@+id/btnDeleteUser"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="60dp"
@@ -147,25 +147,25 @@
                 android:background="@drawable/button_image_background_transparent"
                 android:scaleType="centerInside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnSEditRestaurant"
+                app:layout_constraintTop_toBottomOf="@+id/btnEditUser"
                 app:srcCompat="@drawable/delete" />
 
             <TextView
-                android:id="@+id/textDeleteRestaurant"
+                android:id="@+id/textDeleteUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/kanit_light"
                 android:gravity="center"
-                android:text="Delete a restaurant"
+                android:text="Delete user"
                 android:textColor="@color/teal"
                 android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/btnSDeleteRestaurant"
-                app:layout_constraintTop_toBottomOf="@+id/btnSEditRestaurant" />
+                app:layout_constraintStart_toEndOf="@+id/btnDeleteUser"
+                app:layout_constraintTop_toBottomOf="@+id/btnEditUser" />
 
             <ImageButton
-                android:id="@+id/btnSViewRestaurant"
+                android:id="@+id/btnAllUsers"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="60dp"
@@ -173,35 +173,8 @@
                 android:background="@drawable/button_image_background_transparent"
                 android:scaleType="centerInside"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnSDeleteRestaurant"
-                app:srcCompat="@drawable/view_reviews" />
-
-            <TextView
-                android:id="@+id/textViewRestaurant"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="40dp"
-                android:fontFamily="@font/kanit_light"
-                android:gravity="center"
-                android:text="View reviews"
-                android:textColor="@color/teal"
-                android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/btnSViewRestaurant"
-                app:layout_constraintTop_toBottomOf="@+id/btnSDeleteRestaurant" />
-
-
-            <ImageButton
-                android:id="@+id/btnAllRestaurants"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="60dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/button_image_background_transparent"
-                android:scaleType="centerInside"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnSViewRestaurant"
-                app:srcCompat="@drawable/view_reviews" />
+                app:layout_constraintTop_toBottomOf="@+id/btnDeleteUser"
+                app:srcCompat="@drawable/all_users"/>
 
             <TextView
                 android:id="@+id/textAllRestaurants"
@@ -211,11 +184,11 @@
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/kanit_light"
                 android:gravity="center"
-                android:text="List All Restaurants"
+                android:text="List All Users"
                 android:textColor="@color/teal"
                 android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/btnAllRestaurants"
-                app:layout_constraintTop_toBottomOf="@+id/btnSViewRestaurant" />
+                app:layout_constraintStart_toEndOf="@+id/btnAllUsers"
+                app:layout_constraintTop_toBottomOf="@+id/btnDeleteUser" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
