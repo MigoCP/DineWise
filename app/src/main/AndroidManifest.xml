@@ -15,52 +15,55 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".AdminTabViewUsers"
+            android:name=".TestActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminTabViewRestaurants"
+            android:name=".views.admin.AdminTabViewUsers"
             android:exported="false" />
         <activity
-            android:name=".AddReviewPage"
+            android:name=".views.admin.AdminTabViewRestaurants"
             android:exported="false" />
         <activity
-            android:name=".ReviewPage"
+            android:name=".views.client.AddReviewPage"
             android:exported="false" />
         <activity
-            android:name=".SearchPageFilters"
+            android:name=".views.client.ReviewPage"
             android:exported="false" />
         <activity
-            android:name=".SearchPage"
+            android:name=".views.client.SearchPageFilters"
             android:exported="false" />
         <activity
-            android:name=".RestaurantLogInPage"
+            android:name=".views.client.SearchPage"
             android:exported="false" />
         <activity
-            android:name=".AdminLogInPage"
+            android:name=".views.authentication.RestaurantLogInPage"
             android:exported="false" />
         <activity
-            android:name=".LogInVerification"
+            android:name=".views.authentication.AdminLogInPage"
             android:exported="false" />
         <activity
-            android:name=".HomePage"
+            android:name=".views.authentication.LogInVerification"
             android:exported="false" />
         <activity
-            android:name=".SignUpPage"
+            android:name=".views.client.HomePage"
             android:exported="false" />
         <activity
-            android:name=".LogInPage"
+            android:name=".views.authentication.SignUpPage"
             android:exported="false" />
         <activity
-            android:name=".LogInSignUpPage"
+            android:name=".views.authentication.LogInPage"
             android:exported="false" />
         <activity
-            android:name=".IntroPage2"
+            android:name=".views.authentication.LogInSignUpPage"
             android:exported="false" />
         <activity
-            android:name=".IntroPage1"
+            android:name=".views.start.IntroPage2"
             android:exported="false" />
         <activity
-            android:name=".FirstPage"
+            android:name=".views.start.IntroPage1"
+            android:exported="false" />
+        <activity
+            android:name=".views.start.FirstPage"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

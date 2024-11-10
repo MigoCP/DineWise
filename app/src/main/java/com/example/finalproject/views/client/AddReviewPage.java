@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.views.client;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.finalproject.R;
 
 public class AddReviewPage extends AppCompatActivity {
 

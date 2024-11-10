@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.views.authentication;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.example.finalproject.R;
 
 public class LogInVerification extends AppCompatActivity implements View.OnClickListener{
     RadioGroup rgLogInChoice;

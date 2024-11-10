@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.views.authentication;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,13 +11,15 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class IntroPage2 extends AppCompatActivity implements View.OnClickListener {
-    Button btnContinue2;
+import com.example.finalproject.R;
+
+public class LogInSignUpPage extends AppCompatActivity implements View.OnClickListener{
+    Button btnLogIn, btnSignUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_intro_page2);
+        setContentView(R.layout.activity_login_signup_page);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -27,13 +29,23 @@ public class IntroPage2 extends AppCompatActivity implements View.OnClickListene
     }
 
     private void initialize() {
-        btnContinue2 = findViewById(R.id.btnContinue2);
-        btnContinue2.setOnClickListener(this);
+        btnLogIn = findViewById(R.id.btnLogIn);
+        btnSignUp = findViewById(R.id.btnSignUp);
+        btnLogIn.setOnClickListener(this);
+        btnSignUp.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, LogInSignUpPage.class);
-        startActivity(intent);
+        int id = view.getId();
+        if(id==R.id.btnLogIn){
+            Intent intent = new Intent(this, LogInVerification.class);
+            startActivity(intent);
+        }
+
+        if(id==R.id.btnSignUp){
+            Intent intent = new Intent(this, SignUpPage.class);
+            startActivity(intent);
+        }
     }
 }

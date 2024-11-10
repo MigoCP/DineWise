@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.views.start;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +11,16 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class FirstPage extends AppCompatActivity implements View.OnClickListener {
+import com.example.finalproject.R;
+import com.example.finalproject.views.authentication.LogInSignUpPage;
 
-    Button btnStart;
+public class IntroPage2 extends AppCompatActivity implements View.OnClickListener {
+    Button btnContinue2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activty_first_page);
+        setContentView(R.layout.activity_intro_page2);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -28,13 +30,13 @@ public class FirstPage extends AppCompatActivity implements View.OnClickListener
     }
 
     private void initialize() {
-        btnStart = findViewById(R.id.btnStart);
-        btnStart.setOnClickListener(this);
+        btnContinue2 = findViewById(R.id.btnContinue2);
+        btnContinue2.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, IntroPage1.class);
+        Intent intent = new Intent(this, LogInSignUpPage.class);
         startActivity(intent);
     }
 }
