@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">FinalProject</string>
+    <string-array name="distance_options">
+        <item>Any Distance</item>
+        <item>0-1 km</item>
+        <item>1-5 km</item>
+        <item>5-10 km</item>
+        <item>10+ km</item>
+    </string-array>
+    <string-array name="price_options">
+        <item>Any Price</item>
+        <item>$10 - $20</item>
+        <item>$21 - $30</item>
+        <item>$31 - $40</item>
+        <item>$41 - $50</item>
+        <item>> $51</item>
+    </string-array>
+    <string-array name="rating_options">
+        <item>Any Rating</item>
+        <item>1 Star</item>
+        <item>2 Stars</item>
+        <item>3 Stars</item>
+        <item>4 Stars</item>
+        <item>5 Stars</item>
+    </string-array>
+    <string-array name="typefood_options">
+        <item>Any Type Food</item>
+        <item>Burgers</item>
+        <item>Cafes/Bakeries</item>
+        <item>Desserts</item>
+        <item>Italian</item>
+        <item>Japanese</item>
+        <item>Mexican</item>
+        <item>Pizza</item>
+        <item>Sandwiches</item>
+        <item>Thai</item>
+        <item>Vegetarian</item>
+
+    </string-array>
 </resources>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RestaurantLogInPage">
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo"
+        android:layout_marginTop="50dp"
+        />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome back Manager."
+        android:fontFamily="@font/kanit_medium"
+        android:shadowColor="@color/teal"
+        android:shadowRadius="4"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email address"
+        app:layout_constraintBottom_toTopOf="@+id/edEmailRestaurant"
+        app:layout_constraintStart_toStartOf="@+id/edEmailRestaurant"
+        android:textColor="@color/teal"
+        />
+
+    <ImageView
+        android:id="@+id/imgEmail"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edEmailRestaurant"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/edEmailRestaurant"
+        app:srcCompat="@drawable/email" />
+
+    <EditText
+        android:id="@+id/edEmailRestaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toEndOf="@+id/imgEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/teal"
+        android:text="Email"
+        android:textColor="@color/teal"
+        />
+
+    <TextView
+        android:id="@+id/tvPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        app:layout_constraintBottom_toTopOf="@+id/edPasswordRestaurant"
+        app:layout_constraintStart_toStartOf="@+id/edPasswordRestaurant"
+        android:textColor="@color/teal"
+        />
+
+    <ImageView
+        android:id="@+id/imgPassword"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="@+id/edPasswordRestaurant"
+        app:layout_constraintStart_toStartOf="@+id/imgEmail"
+        app:layout_constraintTop_toTopOf="@+id/edPasswordRestaurant"
+        app:srcCompat="@drawable/password"
+        />
+
+    <EditText
+        android:id="@+id/edPasswordRestaurant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/teal"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="Password"
+        android:textColor="@color/teal"
+        app:layout_constraintStart_toStartOf="@+id/edEmailRestaurant"
+        app:layout_constraintTop_toBottomOf="@+id/edEmailRestaurant" />
+
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot password..."
+        app:layout_constraintStart_toStartOf="@+id/edPasswordRestaurant"
+        app:layout_constraintTop_toBottomOf="@+id/edPasswordRestaurant"
+        android:textColor="@color/teal"
+        android:layout_marginTop="5dp"
+        />
+
+    <Button
+        android:id="@+id/btnLogInRestaurant"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/teal"
+        android:text="LOG IN"
+        android:textColor="@color/yellow"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
