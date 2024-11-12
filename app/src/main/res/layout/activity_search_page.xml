@@ -251,7 +251,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:menu="@menu/bottom_menu"
+        app:menu="@menu/bottom_menu_user"
         app:labelVisibilityMode="labeled"
         app:itemIconTint="@color/teal"
         app:itemTextColor="@color/teal"

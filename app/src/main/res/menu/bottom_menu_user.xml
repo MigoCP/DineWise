@@ -10,6 +10,10 @@
         android:title="Search"
         />
     <item
+        android:id="@+id/restaurants"
+        android:icon="@drawable/tabviewrestaurant"
+        android:title="Restaurants" />
+    <item
         android:id="@+id/review"
         android:icon="@drawable/tabview_review"
         android:title="Review" />
