@@ -28,8 +28,6 @@ public class LogInPage extends AppCompatActivity {
     private Database database;
     private String userType;
     private EditText edEmail, edPassword;
-    private TextView tvTitle;
-    private Button btnLogIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +46,8 @@ public class LogInPage extends AppCompatActivity {
 
         edEmail = findViewById(R.id.edEmail);
         edPassword = findViewById(R.id.edPassword);
-        tvTitle = findViewById(R.id.tvTitle);
-        btnLogIn = findViewById(R.id.btnLogIn);
+        TextView tvTitle = findViewById(R.id.tvTitle);
+        Button btnLogIn = findViewById(R.id.btnLogIn);
 
         tvTitle.setText(userType.equals("client") ?
                 "Log In to see your favorite restaurants" :
@@ -83,13 +81,23 @@ public class LogInPage extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     String role = snapshot.child("role").getValue(String.class);
-                    // Map "client" to "user" and "owner" to "restaurant_owner"
                     String expectedRole = userType.equals("client") ? "user" : "restaurant_owner";
 
                     if (role != null && role.equals(expectedRole)) {
                         Toast.makeText(LogInPage.this, "Login successful.", Toast.LENGTH_SHORT).show();
+
+                        // Retrieve user details
+                        String name = snapshot.child("name").getValue(String.class);
+                        String email = snapshot.child("email").getValue(String.class);
+                        String password = snapshot.child("password").getValue(String.class);
+
+                        // Pass user details to ClientHomePage
                         if ("client".equals(userType)) {
-                            startActivity(new Intent(LogInPage.this, ClientHomePage.class));
+                            Intent intent = new Intent(LogInPage.this, ClientHomePage.class);
+                            intent.putExtra("name", name);
+                            intent.putExtra("email", email);
+                            intent.putExtra("password", password);
+                            startActivity(intent);
                         } else {
                             startActivity(new Intent(LogInPage.this, OwnerHomePage.class));
                         }
@@ -110,5 +118,6 @@ public class LogInPage extends AppCompatActivity {
             }
         });
     }
+
 
 }
