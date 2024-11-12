@@ -14,6 +14,9 @@ import com.example.finalproject.models.Client;
 import com.example.finalproject.models.Owner;
 import com.example.finalproject.views.client.ClientStartupPage;
 import com.example.finalproject.views.owner.OwnerStartupPage;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.appcheck.FirebaseAppCheck;
+import com.google.firebase.appcheck.debug.DebugAppCheckProviderFactory;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +34,9 @@ public class SignUpPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_page);
+
+
+
 
         auth = FirebaseAuth.getInstance();
         database = new Database();

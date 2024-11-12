@@ -71,15 +71,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toEndOf="@+id/imgEmail"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         android:layout_marginTop="50dp"
         android:backgroundTint="@color/teal"
-        android:text="Email"
+        android:ems="10"
+        android:inputType="textEmailAddress"
         android:textColor="@color/teal"
-        />
+        app:layout_constraintStart_toEndOf="@+id/imgEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
     <TextView
         android:id="@+id/tvPassword"
@@ -109,7 +107,6 @@
         android:backgroundTint="@color/teal"
         android:ems="10"
         android:inputType="textPassword"
-        android:text="Password"
         android:textColor="@color/teal"
         app:layout_constraintStart_toStartOf="@+id/edEmail"
         app:layout_constraintTop_toBottomOf="@+id/edEmail" />
