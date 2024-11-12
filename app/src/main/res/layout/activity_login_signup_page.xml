@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".views.authentication.LogInSignUpPage">
+    android:layout_height="match_parent">
 
+    <!-- Background Image -->
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="0dp"
@@ -18,41 +17,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/teal"
+        android:text="Back"
+        android:textColor="@color/yellow"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Logo and Title -->
     <ImageView
         android:id="@+id/imgLogo"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="20dp"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBack"
+        app:srcCompat="@drawable/logo"
+        android:layout_marginTop="50dp" />
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DineWise"
+        android:text="Welcome"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-        android:fontFamily="@font/lobster_regular"
-        android:textColor="@color/black"
-        android:textSize="70dp"
-        android:textStyle="bold"
-        />
+        android:layout_marginTop="20dp" />
 
-    <ImageView
-        android:id="@+id/imgStars"
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        app:layout_constraintBottom_toBottomOf="@+id/backgroundImage"
+    <TextView
+        android:id="@+id/tvDisplayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="For foodies and takeout lovers"
+        android:textColor="@color/teal"
+        android:textSize="25sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/stars_open_page"
-        android:layout_marginBottom="120dp"
-        />
+        android:layout_marginTop="10dp" />
 
+    <!-- Login and Sign-Up Buttons -->
     <Button
         android:id="@+id/btnLogIn"
         android:layout_width="150dp"
@@ -75,10 +89,9 @@
         android:textColor="@color/yellow"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/backgroundImage"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="50dp"
-        />
+        android:layout_marginBottom="50dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

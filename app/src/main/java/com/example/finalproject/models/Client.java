@@ -10,14 +10,14 @@ public class Client extends User{
     private List<Review> reviewHistory;
 
     public Client() {
-        super("", "", "", "");
+        super("", "", "", "", "");
         this.favoriteCuisines = new ArrayList<>();
         this.reviewHistory = new ArrayList<>();
     }
 
     // Constructor
-    public Client(String userID, String email, String password, String role) {
-        super(userID, email, password, role);
+    public Client(String userID, String name, String email, String password) {
+        super(userID, name, email, password, "user");
         this.favoriteCuisines = new ArrayList<>();
         this.reviewHistory = new ArrayList<>();
     }

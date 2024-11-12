@@ -3,12 +3,12 @@ import android.graphics.Bitmap;
 
 public class Owner extends User {
     public Owner() {
-        super("", "", "", "");
+        super("", "", "", "", "");
     }
 
     // Constructor
-    public Owner(String userID, String username, String password, String email) {
-        super(userID, username, password, email);
+    public Owner(String userID, String name, String email, String password) {
+        super(userID, name, password, email, "restaurant_owner");
     }
 
     // Implementing abstract method

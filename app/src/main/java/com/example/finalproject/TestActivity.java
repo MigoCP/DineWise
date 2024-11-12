@@ -124,9 +124,9 @@ public class TestActivity extends AppCompatActivity {
         // Test updating a client
         Client updatedClient = new Client(
                 "client001",
+                "name",
                 "client1_updated@example.com",
-                "updatedpassword123",
-                "user"
+                "updatedpassword123"
         );
         updatedClient.addFavoriteCuisine("Japanese");
         database.updateClient("client001", updatedClient, (databaseError, databaseReference) -> {
@@ -144,9 +144,9 @@ public class TestActivity extends AppCompatActivity {
         // Test updating an owner
         Owner updatedOwner = new Owner(
                 "owner001",
+                "name",
                 "owner1_updated@example.com",
-                "updatedownerpass123",
-                "restaurant_owner"
+                "updatedownerpass123"
         );
         database.updateOwner("owner001", updatedOwner, (databaseError, databaseReference) -> {
             if (databaseError == null && databaseReference != null) {

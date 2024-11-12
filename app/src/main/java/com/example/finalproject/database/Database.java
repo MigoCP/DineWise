@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 public class Database {
 
     private final FirebaseDatabase firebaseDatabase;
-    private final DatabaseReference usersRef;
+    public final DatabaseReference usersRef;
     private final DatabaseReference restaurantsRef;
     private final DatabaseReference menuRef;
     private final DatabaseReference reviewsRef;

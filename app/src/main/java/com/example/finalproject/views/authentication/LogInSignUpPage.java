@@ -4,48 +4,50 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import androidx.activity.EdgeToEdge;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import com.example.finalproject.R;
 
-public class LogInSignUpPage extends AppCompatActivity implements View.OnClickListener{
-    Button btnLogIn, btnSignUp;
+public class LogInSignUpPage extends AppCompatActivity implements View.OnClickListener {
+
+    private String userType;
+    private TextView tvDisplayText;
+    private Button btnLogIn, btnSignUp, btnBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login_signup_page);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        initialize();
-    }
 
-    private void initialize() {
+        // Retrieve data from the Intent
+        userType = getIntent().getStringExtra("userType");
+        String displayText = getIntent().getStringExtra("displayText");
+
+        // Initialize views
+        tvDisplayText = findViewById(R.id.tvDisplayText);
         btnLogIn = findViewById(R.id.btnLogIn);
         btnSignUp = findViewById(R.id.btnSignUp);
+        btnBack = findViewById(R.id.btnBack);
+
+        // Set the text based on userType
+        tvDisplayText.setText(displayText);
+
+        // Set click listeners
         btnLogIn.setOnClickListener(this);
         btnSignUp.setOnClickListener(this);
+        btnBack.setOnClickListener(view -> finish()); // Go back to the previous screen
     }
 
     @Override
     public void onClick(View view) {
-        int id = view.getId();
-        if(id==R.id.btnLogIn){
-            Intent intent = new Intent(this, LogInVerification.class);
-            startActivity(intent);
+        Intent intent;
+        if (view.getId() == R.id.btnLogIn) {
+            intent = new Intent(this, LogInPage.class);
+            intent.putExtra("userType", userType);
+        } else {
+            intent = new Intent(this, SignUpPage.class);
+            intent.putExtra("userType", userType);
         }
-
-        if(id==R.id.btnSignUp){
-            Intent intent = new Intent(this, SignUpPage.class);
-            startActivity(intent);
-        }
+        startActivity(intent);
     }
 }

@@ -4,19 +4,31 @@ import android.graphics.Bitmap;
 
 public abstract class User {
     private String id;
+    private String name;
     private String email;
     private String password;
     private String role; // Added attribute to indicate user role (e.g., restaurant_owner, user)
 
     // Constructor
-    public User(String id, String email, String password, String role) {
+    public User(String id, String name, String email, String password, String role) {
         this.id = id;
+        this.name = name;
         this.email = email;
         this.password = password;
         this.role = role; // Set in constructor
     }
 
     // Getters and Setters
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getId() {
         return id;
     }

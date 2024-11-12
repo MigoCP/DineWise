@@ -12,7 +12,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finalproject.R;
-import com.example.finalproject.views.authentication.LogInSignUpPage;
 
 public class IntroPage2 extends AppCompatActivity implements View.OnClickListener {
     Button btnContinue2;
@@ -36,7 +35,7 @@ public class IntroPage2 extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, LogInSignUpPage.class);
+        Intent intent = new Intent(this, IntroPage3.class);
         startActivity(intent);
     }
 }

@@ -1,26 +1,99 @@
 package com.example.finalproject.views.authentication;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import com.example.finalproject.R;
+import com.example.finalproject.database.Database;
+import com.example.finalproject.views.client.ClientHomePage;
+import com.example.finalproject.views.owner.OwnerHomePage;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 public class LogInPage extends AppCompatActivity {
+
+    private FirebaseAuth auth;
+    private Database database;
+    private String userType;
+    private EditText edEmail, edPassword;
+    private TextView tvTitle;
+    private Button btnLogIn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login_page);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+        auth = FirebaseAuth.getInstance();
+        database = new Database();
+
+        userType = getIntent().getStringExtra("userType");
+
+        edEmail = findViewById(R.id.edEmail);
+        edPassword = findViewById(R.id.edPassword);
+        tvTitle = findViewById(R.id.tvTitle);
+        btnLogIn = findViewById(R.id.btnLogIn);
+
+        tvTitle.setText(userType.equals("client") ?
+                "Log In to see your favorite restaurants" :
+                "Log In to see how your business is doing");
+
+        btnLogIn.setOnClickListener(this::performLogIn);
+    }
+
+    private void performLogIn(View view) {
+        String email = edEmail.getText().toString().trim();
+        String password = edPassword.getText().toString().trim();
+
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                FirebaseUser currentUser = auth.getCurrentUser();
+                if (currentUser != null) {
+                    verifyUserRole(currentUser.getUid());
+                }
+            } else {
+                Toast.makeText(LogInPage.this, "Authentication failed. Please try again.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void verifyUserRole(String userId) {
+        database.usersRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String role = snapshot.child("role").getValue(String.class);
+                    if (role != null && role.equals(userType)) {
+                        Toast.makeText(LogInPage.this, "Login successful.", Toast.LENGTH_SHORT).show();
+                        if ("client".equals(userType)) {
+                            startActivity(new Intent(LogInPage.this, ClientHomePage.class));
+                        } else {
+                            startActivity(new Intent(LogInPage.this, OwnerHomePage.class));
+                        }
+                        finish(); // Close the login page after redirection
+                    } else {
+                        auth.signOut();
+                        Toast.makeText(LogInPage.this, "Access denied: incorrect role.", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    auth.signOut();
+                    Toast.makeText(LogInPage.this, "User record not found in database.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(LogInPage.this, "Database error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         });
     }
 }

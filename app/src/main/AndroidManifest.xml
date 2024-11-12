@@ -36,16 +36,7 @@
             android:name=".views.client.SearchPage"
             android:exported="false" />
         <activity
-            android:name=".views.authentication.RestaurantLogInPage"
-            android:exported="false" />
-        <activity
-            android:name=".views.authentication.AdminLogInPage"
-            android:exported="false" />
-        <activity
-            android:name=".views.authentication.LogInVerification"
-            android:exported="false" />
-        <activity
-            android:name=".views.client.HomePage"
+            android:name=".views.client.ClientHomePage"
             android:exported="false" />
         <activity
             android:name=".views.authentication.SignUpPage"
@@ -61,6 +52,18 @@
             android:exported="false" />
         <activity
             android:name=".views.start.IntroPage1"
+            android:exported="false" />
+        <activity
+            android:name=".views.start.IntroPage3"
+            android:exported="false" />
+        <activity
+            android:name=".views.client.ClientStartupPage"
+            android:exported="false" />
+        <activity
+            android:name=".views.owner.OwnerStartupPage"
+            android:exported="false" />
+        <activity
+            android:name=".views.owner.OwnerHomePage"
             android:exported="false" />
         <activity
             android:name=".views.start.FirstPage"
