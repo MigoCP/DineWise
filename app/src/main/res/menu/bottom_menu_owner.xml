@@ -7,16 +7,16 @@
         />
     <item
         android:id="@+id/menu"
-        android:icon="@drawable/reservations"
+        android:icon="@drawable/tabview_menu"
         android:title="Menu"
         />
     <item
-        android:id="@+id/restaurants"
-        android:icon="@drawable/tabviewrestaurant"
-        android:title="Restaurants" />
+        android:id="@+id/reservation"
+        android:icon="@drawable/tabview_reservation"
+        android:title="Reservation" />
     <item
         android:id="@+id/review"
-        android:icon="@drawable/tabview_review"
+        android:icon="@drawable/tabview_review_owner"
         android:title="Review" />
     <item
         android:id="@+id/account"
