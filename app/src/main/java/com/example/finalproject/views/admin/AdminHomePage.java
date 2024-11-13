@@ -1,18 +1,18 @@
-package com.example.finalproject.views.owner;
+package com.example.finalproject.views.admin;
 
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.finalproject.R;
 
-public class OwnerHomePage extends AppCompatActivity {
+public class AdminHomePage extends AppCompatActivity {
 
     private TextView tvName, tvEmail, tvPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_owner_home_page);
+        setContentView(R.layout.activity_admin_home_page);
 
         tvName = findViewById(R.id.tvName);
         tvEmail = findViewById(R.id.tvEmail);

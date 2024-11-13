@@ -66,7 +66,7 @@
             android:name=".views.owner.OwnerStartupPage"
             android:exported="false" />
         <activity
-            android:name=".views.owner.OwnerHomePage"
+            android:name=".views.admin.AdminHomePage"
             android:exported="false" />
         <activity
             android:name=".views.start.FirstPage"

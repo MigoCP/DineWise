@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.finalproject.R;
 import com.example.finalproject.database.Database;
 import com.example.finalproject.views.client.ClientHomePage;
-import com.example.finalproject.views.owner.OwnerHomePage;
+import com.example.finalproject.views.admin.AdminHomePage;
 import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -99,7 +99,7 @@ public class LogInPage extends AppCompatActivity {
                             intent.putExtra("password", password);
                             startActivity(intent);
                         } else {
-                            startActivity(new Intent(LogInPage.this, OwnerHomePage.class));
+                            startActivity(new Intent(LogInPage.this, AdminHomePage.class));
                         }
                         finish(); // Close the login page after redirection
                     } else {

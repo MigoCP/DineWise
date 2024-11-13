@@ -38,6 +38,30 @@
         android:textSize="40dp"
         android:layout_marginTop="20dp" />
 
+    <ImageView
+        android:id="@+id/imgNotification"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvTitle"
+        app:layout_constraintTop_toTopOf="@+id/tvTitle"
+        app:srcCompat="@drawable/notification" />
+
+    <ImageButton
+        android:id="@+id/btnLogOut"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgNotification"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgNotification"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/log_out_user"
+        android:background="@drawable/button_image_background_transparent"
+        android:scaleType="centerInside"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="25dp"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
         android:layout_width="match_parent"
