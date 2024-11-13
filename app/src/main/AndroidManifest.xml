@@ -15,6 +15,21 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".views.owner.OwnerReservationsPage"
+            android:exported="false" />
+        <activity
+            android:name=".views.owner.OwnerReviewsPage"
+            android:exported="false" />
+        <activity
+            android:name=".views.owner.OwnerMenuPage"
+            android:exported="false" />
+        <activity
+            android:name=".views.owner.OwnerRestaurantPage"
+            android:exported="false" />
+        <activity
+            android:name=".views.client.ClientRestaurantPage"
+            android:exported="false" />
+        <activity
             android:name=".views.owner.OwnerTabViewAccount"
             android:exported="false" />
         <activity
