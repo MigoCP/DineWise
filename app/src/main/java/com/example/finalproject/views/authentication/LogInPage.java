@@ -31,6 +31,8 @@ public class LogInPage extends AppCompatActivity {
     private Database database;
     private String userType;
     private EditText edEmail, edPassword;
+    private Button  btnLogIn ,btnBack;
+    TextView tvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +51,13 @@ public class LogInPage extends AppCompatActivity {
 
         edEmail = findViewById(R.id.edEmail);
         edPassword = findViewById(R.id.edPassword);
-        TextView tvTitle = findViewById(R.id.tvTitle);
-        Button btnLogIn = findViewById(R.id.btnLogIn);
+
+        btnBack = findViewById(R.id.btnBackToLoginSignUp);
+        btnBack.setOnClickListener(view -> finish()); // Go back to the previous screen
+
+        tvTitle = findViewById(R.id.tvTitle);
+        btnLogIn = findViewById(R.id.btnLogIn);
+
 
         tvTitle.setText(userType.equals("client") ?
                 "Log In to see your favorite restaurants" :

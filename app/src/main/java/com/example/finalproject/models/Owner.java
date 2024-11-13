@@ -8,7 +8,7 @@ public class Owner extends User {
 
     // Constructor
     public Owner(String userID, String name, String email, String password) {
-        super(userID, name, password, email, "restaurant_owner");
+        super(userID, name, email, password, "restaurant_owner");
     }
 
     // Implementing abstract method
