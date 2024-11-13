@@ -14,6 +14,9 @@ import com.example.finalproject.R;
 import com.example.finalproject.database.Database;
 import com.example.finalproject.views.client.ClientHomePage;
 import com.example.finalproject.views.admin.AdminHomePage;
+import com.example.finalproject.views.owner.OwnerTabViewAccount;
+import com.example.finalproject.views.start.IntroPage1;
+import com.example.finalproject.views.start.IntroPage3;
 import com.google.firebase.appcheck.FirebaseAppCheck;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -99,12 +102,17 @@ public class LogInPage extends AppCompatActivity {
                             intent.putExtra("password", password);
                             startActivity(intent);
                         } else {
-                            startActivity(new Intent(LogInPage.this, AdminHomePage.class));
+                            startActivity(new Intent(LogInPage.this, OwnerTabViewAccount.class));
                         }
                         finish(); // Close the login page after redirection
                     } else {
                         auth.signOut();
                         Toast.makeText(LogInPage.this, "Access denied: incorrect role.", Toast.LENGTH_SHORT).show();
+
+                        // come back to change role
+                        Intent intent = new Intent(LogInPage.this, IntroPage3.class);
+                        startActivity(intent);
+                        finish();
                     }
                 } else {
                     auth.signOut();

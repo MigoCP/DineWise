@@ -1,6 +1,7 @@
 package com.example.finalproject.views.client;
 
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.finalproject.R;
@@ -8,6 +9,7 @@ import com.example.finalproject.R;
 public class ClientHomePage extends AppCompatActivity {
 
     private TextView tvName, tvEmail, tvPassword;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
