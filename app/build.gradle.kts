@@ -47,6 +47,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
+    implementation ("com.squareup.picasso:picasso:2.5.2")
     implementation(libs.firebase.auth)
     implementation(libs.firebase.appcheck.debug)
     testImplementation(libs.junit)

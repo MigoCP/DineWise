@@ -7,6 +7,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.Query;
+import com.squareup.picasso.Picasso;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +33,7 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
 
     FirebaseDatabase database;
     DatabaseReference sRef;
+    FirebaseAuth ownerAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +47,14 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
         });
         initialize();
 
+        ownerAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        sRef = database.getReference("restaurants");
-        sRef.addListenerForSingleValueEvent(this);
+        String ownerId = ownerAuth.getCurrentUser().getUid();
 
+        sRef = database.getReference("restaurants");
+
+        Query query = sRef.orderByChild("ownerId").equalTo(ownerId);
+        query.addListenerForSingleValueEvent(this);
     }
 
     private void initialize() {
@@ -72,64 +80,132 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
         btnUpdatePhone = findViewById(R.id.btnUpdatePhone);
         btnUpdatePhone.setOnClickListener(this);
 
-
     }
 
-    // NEED TO TEST THE CODE (COMMENTED) BELOW AFTER DO THE RELATION IN FIREBASE
+    @Override
+    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        if (dataSnapshot.exists()) {
+            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                // load restaurant data
+                String name = snapshot.child("name").getValue(String.class);
+                String priceRange = snapshot.child("priceRange").getValue(String.class);
+                String website = snapshot.child("website").getValue(String.class);
+                String address = snapshot.child("address").getValue(String.class);
+                String phoneNumber = snapshot.child("phoneNumber").getValue(String.class);
+                String imageUrl = snapshot.child("image").getValue(String.class);
+
+                // show data
+                if (name != null) tvTitleNameRestaurant.setText(name);
+                if (priceRange != null) textRangePrice.setText(priceRange);
+                if (website != null) textUpdateLinkWebSite.setText(website);
+                if (address != null) textUpdateAddress.setText(address);
+                if (phoneNumber != null) textUpdatePhone.setText(phoneNumber);
+
+                if (imageUrl != null && !imageUrl.isEmpty()) {
+                    Picasso.with(this).load(imageUrl).into(imageRestaurant);
+                }
+            }
+        }
+    }
+
 
     @Override
     public void onClick(View view) {
-        /*
-        if(view == btnUpdateRestaurantName){
+
+        String ownerId = ownerAuth.getCurrentUser().getUid();
+        Query query = sRef.orderByChild("ownerId").equalTo(ownerId);
+
+        if (view == btnUpdateRestaurantName) {
             String newName = editRestaurantName.getText().toString().trim();
-            if (!newName.isEmpty()){
-                sRef.child("name").setValue(newName);
-                tvTitleNameRestaurant.setText(newName);
+            if (!newName.isEmpty()) {
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                snapshot.getRef().child("name").setValue(newName);
+                                tvTitleNameRestaurant.setText(newName);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
             }
         } else if (view == btnUpdateRangePrice) {
             String newRangePrice = editRangePrice.getText().toString().trim();
             if (!newRangePrice.isEmpty()) {
-                sRef.child("priceRange").setValue(newRangePrice);
-                textRangePrice.setText(newRangePrice);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                snapshot.getRef().child("priceRange").setValue(newRangePrice);
+                                textRangePrice.setText(newRangePrice);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
             }
         } else if (view == btnUpdateLinkWebSite) {
             String newWebsite = editWebsite.getText().toString().trim();
             if (!newWebsite.isEmpty()) {
-                sRef.child("website").setValue(newWebsite);
-                textUpdateLinkWebSite.setText(newWebsite);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                snapshot.getRef().child("website").setValue(newWebsite);
+                                textUpdateLinkWebSite.setText(newWebsite);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
             }
         } else if (view == btnUpdateAddress) {
             String newAddress = editAddress.getText().toString().trim();
             if (!newAddress.isEmpty()) {
-                sRef.child("address").setValue(newAddress);
-                textUpdateAddress.setText(newAddress);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                snapshot.getRef().child("address").setValue(newAddress);
+                                textUpdateAddress.setText(newAddress);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
             }
         } else if (view == btnUpdatePhone) {
             String newPhone = editPhone.getText().toString().trim();
             if (!newPhone.isEmpty()) {
-                sRef.child("phoneNumber").setValue(newPhone);
-                textUpdatePhone.setText(newPhone);
+                query.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                snapshot.getRef().child("phoneNumber").setValue(newPhone);
+                                textUpdatePhone.setText(newPhone);
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                });
             }
-        }*/
-    }
-
-    @Override
-    public void onDataChange(@NonNull DataSnapshot snapshot) {
-        /*
-        if (snapshot.exists()) {
-            String name = snapshot.child("name").getValue(String.class);
-            String priceRange = snapshot.child("priceRange").getValue(String.class);
-            String website = snapshot.child("website").getValue(String.class);
-            String address = snapshot.child("address").getValue(String.class);
-            String phoneNumber = snapshot.child("phoneNumber").getValue(String.class);
-
-            if (name != null) tvTitleNameRestaurant.setText(name);
-            if (priceRange != null) textRangePrice.setText(priceRange);
-            if (website != null) textUpdateLinkWebSite.setText(website);
-            if (address != null) textUpdateAddress.setText(address);
-            if (phoneNumber != null) textUpdatePhone.setText(phoneNumber);
-        }*/
-
+        }
     }
 
     @Override
