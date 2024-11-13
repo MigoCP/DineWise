@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/tabview_home"
+        android:title="Home"
+        />
+    <item
+        android:id="@+id/menu"
+        android:icon="@drawable/reservations"
+        android:title="Menu"
+        />
+    <item
+        android:id="@+id/restaurants"
+        android:icon="@drawable/tabviewrestaurant"
+        android:title="Restaurants" />
+    <item
+        android:id="@+id/review"
+        android:icon="@drawable/tabview_review"
+        android:title="Review" />
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/tabview_account"
+        android:title="Account" />
+</menu>
