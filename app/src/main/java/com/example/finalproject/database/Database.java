@@ -124,4 +124,7 @@ public class Database {
         reviewsRef.child(reviewId).addListenerForSingleValueEvent(listener);
     }
 
+    public void getAllRestaurants(ValueEventListener listener) {
+        restaurantsRef.addListenerForSingleValueEvent(listener);
+    }
 }
