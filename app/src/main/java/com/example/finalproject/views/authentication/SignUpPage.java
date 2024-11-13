@@ -28,7 +28,7 @@ public class SignUpPage extends AppCompatActivity {
     private String userType;
     private EditText edName, edEmail, edPassword, edConfirmPassword;
     private TextView tvTitle;
-    private Button btnSignUp;
+    private Button btnSignUp, btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,9 @@ public class SignUpPage extends AppCompatActivity {
         edConfirmPassword = findViewById(R.id.edConfirmPassword);
         tvTitle = findViewById(R.id.tvTitle);
         btnSignUp = findViewById(R.id.btnSignUp);
+
+        btnBack = findViewById(R.id.btnBackToLoginSignUp2);
+        btnBack.setOnClickListener(view -> finish()); // Go back to the previous screen
 
         tvTitle.setText(userType.equals("client") ?
                 "Sign Up and start seeing your favorite restaurants today" :

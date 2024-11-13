@@ -28,7 +28,7 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
 
     ImageView imageRestaurant;
     TextView tvTitleNameRestaurant, textRangePrice,textUpdateLinkWebSite,textUpdateAddress,textUpdatePhone;
-    ImageButton btnUpdateRestaurantName, btnUpdateRangePrice, btnUpdateLinkWebSite, btnUpdateAddress,btnUpdatePhone;
+    ImageButton btnUpdateRestaurantName, btnUpdateRangePrice, btnUpdateLinkWebSite, btnUpdateAddress,btnUpdatePhone, btnLogOut;
     EditText editRestaurantName, editRangePrice, editWebsite, editAddress,editPhone;
 
     FirebaseDatabase database;
