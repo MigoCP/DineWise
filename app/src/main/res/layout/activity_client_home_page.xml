@@ -37,8 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="40dp"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_marginTop="20dp" />
 
     <ImageView
         android:id="@+id/imgNotification"
@@ -62,7 +61,7 @@
         android:background="@drawable/button_image_background_transparent"
         android:scaleType="centerInside"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="25dp"/>
+        android:layout_marginTop="25dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -76,8 +75,7 @@
         android:layout_marginEnd="20dp"
         app:startIconDrawable="@drawable/tabview_search"
         app:startIconScaleType="fitStart"
-        app:startIconTint="@color/teal"
-        >
+        app:startIconTint="@color/teal">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/searchfield"
@@ -87,9 +85,7 @@
             android:background="@drawable/custom_border"
             android:hint="Search"
             android:paddingStart="40dp"
-            android:textColorHint="@color/teal"
-
-            />
+            android:textColorHint="@color/teal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -120,63 +116,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTopRestaurants">
 
+        <!-- Dynamic Container for Top Restaurants -->
         <LinearLayout
+            android:id="@+id/topRestaurantsContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/food1"
-                    android:background="@drawable/rounded_image_border"
-                    android:scaleType="centerCrop"
-                    android:padding="4dp"
-                    android:clipToOutline="true"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Fast food"
-                    android:textAlignment="center"
-                    android:textColor="@color/teal"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/food2"
-                    android:background="@drawable/rounded_image_border"
-                    android:scaleType="centerCrop"
-                    android:padding="4dp"
-                    android:clipToOutline="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Thai food"
-                    android:textAlignment="center"
-                    android:textColor="@color/teal"
-                    />
-            </LinearLayout>
-
-        </LinearLayout>
+            android:orientation="horizontal" />
     </HorizontalScrollView>
 
     <TextView
@@ -194,9 +139,7 @@
         android:layout_marginStart="20dp"
         android:gravity="start"
         android:textSize="20sp"
-        android:layout_marginTop="0dp"
-        />
-
+        android:layout_marginTop="0dp" />
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollViewNearMe"
@@ -209,64 +152,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textNearMe">
 
+        <!-- Dynamic Container for Near Me Restaurants -->
         <LinearLayout
+            android:id="@+id/nearMeContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/labanquise"
-                    android:background="@drawable/rounded_image_border"
-                    android:scaleType="centerCrop"
-                    android:padding="4dp"
-                    android:clipToOutline="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="La Banquise"
-                    android:textAlignment="center"
-                    android:textColor="@color/teal"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
-
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="100dp"
-                    android:src="@drawable/schwartz"
-                    android:background="@drawable/rounded_image_border"
-                    android:scaleType="centerCrop"
-                    android:padding="4dp"
-                    android:clipToOutline="true"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:text="Schwartz's Deli"
-                    android:textAlignment="center"
-                    android:textColor="@color/teal"
-                    />
-            </LinearLayout>
-
-        </LinearLayout>
+            android:orientation="horizontal" />
     </HorizontalScrollView>
-
 
     <TextView
         android:id="@+id/tvTitleTest"
@@ -279,43 +171,42 @@
         android:textStyle="bold"
         android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@id/horizontalScrollViewNearMe"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horizontalScrollViewNearMe" />
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tvUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
         android:text="Name: "
-        android:textColor="@color/red"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollViewNearMe"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitleTest" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"/>
 
     <TextView
-        android:id="@+id/tvEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email: "
-        app:layout_constraintBottom_toBottomOf="@id/tvName"
-        android:layout_marginStart="60dp"
-        android:textColor="@color/red"
-        app:layout_constraintStart_toEndOf="@id/tvName"
-        android:layout_marginTop="10dp"/>
-
-    <TextView
-        android:id="@+id/tvPassword"
+        android:id="@+id/tvUserEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="Password: "
-        android:textColor="@color/red"
+        android:text="Email: "
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteY="348dp" />
+
+    <TextView
+        android:id="@+id/tvUserPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password: "
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/tvUserEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="8dp"/>
+
 
     <View
         android:layout_width="0dp"
@@ -323,7 +214,7 @@
         android:background="@color/teal"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -338,9 +229,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu_user"
-        />
-
-
+        app:menu="@menu/bottom_menu_user" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
