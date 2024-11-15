@@ -218,11 +218,11 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {}
                 });
-            } else if (view.getId() == R.id.btnLogOut) {
-                // Show the logout confirmation dialog
-                if (!alertDialog.create().isShowing()) {
-                    alertDialog.show();
-                }
+            }
+        } else if (view == btnLogOut) {
+            // Show the logout confirmation dialog
+            if (!alertDialog.create().isShowing()) {
+                alertDialog.show();
             }
         }
     }
