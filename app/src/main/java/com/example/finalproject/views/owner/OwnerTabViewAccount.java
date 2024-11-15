@@ -1,5 +1,7 @@
 package com.example.finalproject.views.owner;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -7,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.finalproject.views.start.IntroPage3;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
@@ -23,8 +26,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import androidx.appcompat.app.AlertDialog;
 
-public class OwnerTabViewAccount extends AppCompatActivity implements View.OnClickListener, ValueEventListener {
+public class OwnerTabViewAccount extends AppCompatActivity implements View.OnClickListener, ValueEventListener, DialogInterface.OnClickListener {
 
     ImageView imageRestaurant;
     TextView tvTitleNameRestaurant, textRangePrice,textUpdateLinkWebSite,textUpdateAddress,textUpdatePhone;
@@ -34,6 +38,7 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
     FirebaseDatabase database;
     DatabaseReference sRef;
     FirebaseAuth ownerAuth;
+    AlertDialog.Builder alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +84,15 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
         btnUpdateAddress.setOnClickListener(this);
         btnUpdatePhone = findViewById(R.id.btnUpdatePhone);
         btnUpdatePhone.setOnClickListener(this);
+
+        btnLogOut = findViewById(R.id.btnLogOut);
+        btnLogOut.setOnClickListener(this);
+
+        alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Log Out ");
+        alertDialog.setMessage("Are you sure you want to sign out? (y/n)");
+        alertDialog.setPositiveButton("Yes", this);
+        alertDialog.setNegativeButton("No", this);
 
     }
 
@@ -204,6 +218,11 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {}
                 });
+            } else if (view.getId() == R.id.btnLogOut) {
+                // Show the logout confirmation dialog
+                if (!alertDialog.create().isShowing()) {
+                    alertDialog.show();
+                }
             }
         }
     }
@@ -211,5 +230,17 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
     @Override
     public void onCancelled(@NonNull DatabaseError error) {
 
+    }
+
+    @Override
+    public void onClick(DialogInterface dialogInterface, int button) {
+        if (button == DialogInterface.BUTTON_POSITIVE) {
+            Intent intent = new Intent(this, IntroPage3.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+        }
+        else if (button == DialogInterface.BUTTON_NEGATIVE)
+            dialogInterface.dismiss();
     }
 }
