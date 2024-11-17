@@ -39,6 +39,7 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
     DatabaseReference sRef;
     FirebaseAuth ownerAuth;
     AlertDialog.Builder alertDialog;
+    //testing
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
