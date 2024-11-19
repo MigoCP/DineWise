@@ -116,13 +116,13 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
                 if (address != null) textUpdateAddress.setText(address);
                 if (phoneNumber != null) textUpdatePhone.setText(phoneNumber);
 
-                if (imageUrl != null && !imageUrl.isEmpty()) {
-                    // not working
-                    Picasso.get()
-                            .load(imageUrl)
-
-                            .into(imageRestaurant);
-                }
+//                if (imageUrl != null && !imageUrl.isEmpty()) {
+//                    // not working
+//                    Picasso.get()
+//                            .load(imageUrl)
+//
+//                            .into(imageRestaurant);
+//                }
             }
         }
     }
