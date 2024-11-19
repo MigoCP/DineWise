@@ -93,6 +93,7 @@
         android:backgroundTint="@color/teal"
         android:ems="10"
         android:inputType="textEmailAddress"
+        android:text="client4@example.com"
         android:textColor="@color/teal"
         app:layout_constraintStart_toEndOf="@+id/imgEmail"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
@@ -125,6 +126,7 @@
         android:backgroundTint="@color/teal"
         android:ems="10"
         android:inputType="textPassword"
+        android:text="clientpass4"
         android:textColor="@color/teal"
         app:layout_constraintStart_toStartOf="@+id/edEmail"
         app:layout_constraintTop_toBottomOf="@+id/edEmail" />
