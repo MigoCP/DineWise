@@ -186,7 +186,6 @@ public class ClientHomePage extends AppCompatActivity implements View.OnClickLis
                 intent.putExtra("restaurantId", restaurant.getId()); // Pass ID
                 startActivity(intent);
             });
-
             layout.addView(restaurantCard);
         }
     }

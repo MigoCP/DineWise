@@ -202,7 +202,7 @@
          />
 
     <Button
-        android:id="@+id/tvView"
+        android:id="@+id/btnView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View all"
@@ -210,7 +210,7 @@
         android:textColor="@color/teal"
         android:layout_marginTop="20dp"
         android:textStyle="normal"
-        android:paintFlags="underline"
+
         app:layout_constraintBaseline_toBaselineOf= "@+id/tvAchievements"
         app:layout_constraintLeft_toRightOf="@+id/tvAchievements"
         app:layout_constraintEnd_toEndOf="@+id/tvWebsite"
