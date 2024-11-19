@@ -15,6 +15,9 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
+            android:name=".views.client.ClientAccountPage"
+            android:exported="false" />
+        <activity
             android:name=".views.owner.OwnerReservationsPage"
             android:exported="false" />
         <activity
