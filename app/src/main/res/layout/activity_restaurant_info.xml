@@ -5,6 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <!-- Restaurant Image -->
     <ImageView
         android:id="@+id/restaurantImageView"
@@ -22,9 +33,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:textSize="24sp"
+        android:textSize="27sp"
         android:textStyle="bold"
+        android:fontFamily="@font/kanit_medium"
         android:textColor="@color/black"
+        android:shadowColor="@color/teal"
+        android:shadowRadius="4"
         app:layout_constraintTop_toBottomOf="@id/restaurantImageView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +49,9 @@
         android:id="@+id/restaurantDetailsView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_margin="20dp"
         android:textColor="@color/black"
+        android:fontFamily="@font/kanit_light"
         app:layout_constraintTop_toBottomOf="@id/restaurantNameView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,14 +77,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@drawable/card_background">
 
         <!-- Menu Items Container -->
         <LinearLayout
             android:id="@+id/menuContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            android:background="@drawable/card_background"
+           />
     </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -118,12 +118,14 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
 
                 if (imageUrl != null && !imageUrl.isEmpty()) {
                     // not working
-                    //Picasso.with(this).load(imageUrl).into(imageRestaurant);
+                    Picasso.get()
+                            .load(imageUrl)
+
+                            .into(imageRestaurant);
                 }
             }
         }
     }
-
 
     @Override
     public void onClick(View view) {
