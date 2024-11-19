@@ -34,11 +34,9 @@ android {
 
 dependencies {
     implementation("com.github.bumptech.glide:glide:4.12.0")
-    implementation("com.squareup.picasso:picasso:2.8")
     annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
     // Import the BoM for the Firebase platform
     implementation(platform("com.google.firebase:firebase-bom:33.5.1"))
-
     // Add the dependencies for the App Check libraries
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation("com.google.firebase:firebase-appcheck-debug")
@@ -48,7 +46,8 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.firebase.database)
     implementation(libs.firebase.storage)
-    implementation ("com.squareup.picasso:picasso:2.8")
+    implementation("androidx.cardview:cardview:1.0.0")
+    implementation("com.squareup.picasso:picasso:2.8")
     implementation(libs.firebase.auth)
     implementation(libs.firebase.appcheck.debug)
     testImplementation(libs.junit)
