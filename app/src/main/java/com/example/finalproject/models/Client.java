@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Client extends User{
     private List<String> favoriteCuisines;
-    private List<Review> reviewHistory;
+    private List<String> reviewHistory;
 
     public Client() {
         super("", "", "", "", "");
@@ -22,6 +22,22 @@ public class Client extends User{
         this.reviewHistory = new ArrayList<>();
     }
 
+    public List<String> getReviewHistory() {
+        return reviewHistory;
+    }
+
+    public void setReviewHistory(List<String> reviewHistory) {
+        this.reviewHistory = reviewHistory;
+    }
+
+    public List<String> getFavoriteCuisines() {
+        return favoriteCuisines;
+    }
+
+    public void setFavoriteCuisines(List<String> favoriteCuisines) {
+        this.favoriteCuisines = favoriteCuisines;
+    }
+
     @Override
     public boolean signUp() {
         // Sign-up logic here
@@ -31,11 +47,6 @@ public class Client extends User{
     public List<Restaurant> viewRecommendedRestaurants(List<Restaurant> allRestaurants) {
         // Logic to view recommended restaurants
         return new ArrayList<>();
-    }
-
-    public void addReview(String restaurantID, Review review) {
-        // Logic to add a review
-        reviewHistory.add(review);
     }
 
     public void likeReview(String reviewID) {

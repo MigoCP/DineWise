@@ -30,7 +30,7 @@
             android:name=".views.owner.OwnerRestaurantPage"
             android:exported="false" />
         <activity
-            android:name=".views.client.ClientRestaurantPage"
+            android:name=".views.client.RestaurantInfoActivity"
             android:exported="false" />
         <activity
             android:name=".views.owner.OwnerTabViewAccount"

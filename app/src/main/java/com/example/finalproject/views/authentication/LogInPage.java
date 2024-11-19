@@ -100,6 +100,7 @@ public class LogInPage extends AppCompatActivity {
                         String name = snapshot.child("name").getValue(String.class);
                         String email = snapshot.child("email").getValue(String.class);
                         String password = snapshot.child("password").getValue(String.class);
+                        String id = snapshot.child("id").getValue(String.class);
 
                         // Pass user details to ClientHomePage
                         if ("client".equals(userType)) {
@@ -107,6 +108,7 @@ public class LogInPage extends AppCompatActivity {
                             intent.putExtra("name", name);
                             intent.putExtra("email", email);
                             intent.putExtra("password", password);
+                            intent.putExtra("userId", id); // Pass user ID
                             startActivity(intent);
                         } else {
                             startActivity(new Intent(LogInPage.this, OwnerTabViewAccount.class));
