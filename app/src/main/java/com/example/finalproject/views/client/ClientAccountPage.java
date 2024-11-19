@@ -1,5 +1,6 @@
 package com.example.finalproject.views.client;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +35,8 @@ public class ClientAccountPage extends AppCompatActivity implements View.OnClick
             btnMyReserves, btnFavoriteRestaurants;
     Button btnView;
 
+    private BottomNavigationView bottomNavigationView;
+
     DatabaseReference sRef;
     FirebaseAuth clientAuth;
 
@@ -42,6 +46,27 @@ public class ClientAccountPage extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_client_account_page);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.home) {
+                startActivity(new Intent(ClientAccountPage.this, ClientHomePage.class));
+                return true;
+            } else if (id == R.id.search) {
+                startActivity(new Intent(ClientAccountPage.this, SearchPage.class));
+                return true;
+            } else if (id == R.id.review) {
+                startActivity(new Intent(ClientAccountPage.this, ReviewPage.class));
+                return true;
+            } else if (id == R.id.account) {
+                return true;
+            }
+            return false;
+        });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

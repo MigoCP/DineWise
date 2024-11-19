@@ -22,9 +22,17 @@ import com.example.finalproject.database.Database;
 import com.example.finalproject.models.Client;
 import com.example.finalproject.models.Restaurant;
 import com.example.finalproject.models.RestaurantCardViewModel;
+import com.example.finalproject.views.owner.OwnerMenuPage;
+import com.example.finalproject.views.owner.OwnerReservationsPage;
+import com.example.finalproject.views.owner.OwnerRestaurantPage;
+import com.example.finalproject.views.owner.OwnerReviewsPage;
+import com.example.finalproject.views.owner.OwnerTabViewAccount;
 import com.example.finalproject.views.start.IntroPage3;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -37,6 +45,8 @@ public class ClientHomePage extends AppCompatActivity implements View.OnClickLis
     private Database database;
     Button btnProfilePage;
     AlertDialog.Builder alertDialog;
+
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +64,27 @@ public class ClientHomePage extends AppCompatActivity implements View.OnClickLis
         alertDialog.setMessage("Are you sure you want to sign out? (y/n)");
         alertDialog.setPositiveButton("Yes", this);
         alertDialog.setNegativeButton("No", this);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.home) {
+                return true;
+            } else if (id == R.id.search) {
+                startActivity(new Intent(ClientHomePage.this, SearchPage.class));
+                return true;
+            } else if (id == R.id.review) {
+                startActivity(new Intent(ClientHomePage.this, ReviewPage.class));
+                return true;
+            } else if (id == R.id.account) {
+                startActivity(new Intent(ClientHomePage.this, ClientAccountPage.class));
+                return true;
+            }
+            return false;
+        });
+
 
         // Initialize the database object
         database = new Database();
