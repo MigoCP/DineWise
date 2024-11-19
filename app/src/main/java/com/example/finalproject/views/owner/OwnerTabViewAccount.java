@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.finalproject.views.start.IntroPage3;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.Query;
 import com.squareup.picasso.Picasso;
@@ -41,11 +42,37 @@ public class OwnerTabViewAccount extends AppCompatActivity implements View.OnCli
     AlertDialog.Builder alertDialog;
     //testing
 
+    private BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_owner_tab_view_account);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.home) {
+                startActivity(new Intent(OwnerTabViewAccount.this, OwnerRestaurantPage.class));
+                return true;
+            } else if (id == R.id.menu) {
+                startActivity(new Intent(OwnerTabViewAccount.this, OwnerMenuPage.class));
+                return true;
+            } else if (id == R.id.reservation) {
+                startActivity(new Intent(OwnerTabViewAccount.this, OwnerReservationsPage.class));
+                return true;
+            } else if (id == R.id.review) {
+                startActivity(new Intent(OwnerTabViewAccount.this, OwnerReviewsPage.class));
+                return true;
+            } else if (id == R.id.account) {
+                return true;
+            }
+            return false;
+        });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

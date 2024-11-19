@@ -14,6 +14,7 @@ import com.example.finalproject.R;
 import com.example.finalproject.database.Database;
 import com.example.finalproject.views.client.ClientHomePage;
 import com.example.finalproject.views.admin.AdminHomePage;
+import com.example.finalproject.views.owner.OwnerRestaurantPage;
 import com.example.finalproject.views.owner.OwnerReviewsPage;
 import com.example.finalproject.views.owner.OwnerTabViewAccount;
 import com.example.finalproject.views.start.IntroPage1;
@@ -112,7 +113,7 @@ public class LogInPage extends AppCompatActivity {
                             intent.putExtra("userId", id); // Pass user ID
                             startActivity(intent);
                         } else {
-                            startActivity(new Intent(LogInPage.this, OwnerReviewsPage.class));
+                            startActivity(new Intent(LogInPage.this, OwnerRestaurantPage.class));
                         }
                         finish(); // Close the login page after redirection
                     } else {
