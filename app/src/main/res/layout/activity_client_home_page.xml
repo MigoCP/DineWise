@@ -161,6 +161,20 @@
         android:orientation="horizontal" />
 </HorizontalScrollView>
 
+    <Button
+        android:id="@+id/btnProfilePage"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/teal"
+        android:text="Profile"
+        android:textColor="@color/yellow"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+    />
+
 <com.google.android.material.bottomnavigation.BottomNavigationView
 android:id="@+id/bottom_navigation"
 android:layout_width="match_parent"
