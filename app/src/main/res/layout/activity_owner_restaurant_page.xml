@@ -67,7 +67,7 @@
         android:layout_marginTop="25dp"/>
 
     <ImageView
-        android:id="@+id/imageRestaurant"
+        android:id="@+id/imRestaurant"
         android:layout_width="360dp"
         android:layout_height="200dp"
         android:scaleType="fitXY"
@@ -92,12 +92,12 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginStart="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageRestaurant"
+        app:layout_constraintTop_toBottomOf="@+id/imRestaurant"
         app:layout_constraintStart_toStartOf="parent"
         />
 
     <TextView
-        android:id="@+id/textRangePrice"
+        android:id="@+id/tvRangePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/kanit_light"
@@ -111,6 +111,190 @@
         android:layout_marginLeft="20dp"
         />
 
+    <ImageView
+        android:id="@+id/imRating"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="centerInside"
+        android:background="@drawable/button_image_background_transparent"
+        app:srcCompat="@drawable/stars"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleNameRestaurant"
+        />
+
+    <TextView
+        android:id="@+id/tvRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_light"
+        android:gravity="center"
+        android:text="4.5"
+        android:textColor="@color/teal"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imRating"
+        app:layout_constraintStart_toEndOf="@+id/imRating"
+        app:layout_constraintTop_toTopOf="@+id/imRating"
+        android:layout_marginLeft="10dp"
+        />
+
+    <TextView
+        android:id="@+id/tvReview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_light"
+        android:gravity="center"
+        android:text="8,500 reviews"
+        android:textColor="@color/teal"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvRating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvRating"
+       android:layout_marginRight="40dp"
+        />
+
+    <TextView
+        android:id="@+id/tvWebsite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_light"
+        android:gravity="center"
+        android:text="Visit Website"
+        android:textStyle="bold"
+        android:textColor="@color/teal"
+        android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imRating"
+        android:layout_marginRight="40dp"
+        />
+
+    <ImageButton
+        android:id="@+id/imBtnWebsite"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="centerInside"
+        android:background="@drawable/button_image_background_transparent"
+        app:srcCompat="@drawable/website_resto"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="50dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvWebsite"
+        />
+
+    <TextView
+        android:id="@+id/tvMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_light"
+        android:gravity="center"
+        android:text="Menu"
+        android:textStyle="bold"
+        android:textColor="@color/teal"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWebsite"
+        app:layout_constraintStart_toEndOf="@+id/tvWebsite"
+        app:layout_constraintTop_toTopOf="@+id/tvWebsite"
+        android:layout_marginLeft="60dp"
+        />
+
+    <ImageButton
+        android:id="@+id/imBtnMenu"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:scaleType="centerInside"
+        android:background="@drawable/button_image_background_transparent"
+        app:srcCompat="@drawable/menu"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="140dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvMenu"
+        />
+
+    <TextView
+        android:id="@+id/tvReserve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_light"
+        android:gravity="center"
+        android:text="Reserve"
+        android:textStyle="bold"
+        android:textColor="@color/teal"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvMenu"
+        android:layout_marginRight="40dp"
+        />
+
+    <ImageButton
+        android:id="@+id/imBtnReserve"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:scaleType="centerInside"
+        android:background="@drawable/button_image_background_transparent"
+        app:srcCompat="@drawable/reserve_now"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="280dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvReserve"
+        />
+
+    <TextView
+        android:id="@+id/tvLocationContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_light"
+        android:gravity="center"
+        android:text="Location and Contact:"
+        android:textColor="@color/teal"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imBtnWebsite"
+        android:layout_marginRight="40dp"
+        />
+    <TextView
+        android:id="@+id/tvLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_light"
+        android:gravity="center"
+        android:text="Rue Saint Catherine"
+        android:textColor="@color/teal"
+        android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLocationContact"
+        android:layout_marginRight="40dp"
+        />
+
+    <ImageView
+        android:id="@+id/imContact"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="centerInside"
+        android:background="@drawable/button_image_background_transparent"
+        app:srcCompat="@drawable/phone"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/tvLocation"
+        />
+
+    <TextView
+        android:id="@+id/tvContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/kanit_light"
+        android:gravity="center"
+        android:text="+1 514-654-578"
+        android:textColor="@color/teal"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imContact"
+        app:layout_constraintStart_toEndOf="@+id/imContact"
+        app:layout_constraintTop_toTopOf="@+id/imContact"
+        android:layout_marginLeft="20dp"
+        />
+
     <View
         android:layout_width="0dp"
         android:layout_height="2dp"
@@ -118,6 +302,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
