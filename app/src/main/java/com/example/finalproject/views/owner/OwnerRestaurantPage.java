@@ -32,7 +32,7 @@ import com.squareup.picasso.Picasso;
 
 public class OwnerRestaurantPage extends AppCompatActivity implements View.OnClickListener, ValueEventListener, DialogInterface.OnClickListener {
 
-    ImageView imRestaurant;
+    ImageView imRestaurant, imRating;
     TextView tvTitleNameRestaurant, tvRangePrice, tvRating, tvReview, tvLocation, tvContact;
     ImageButton btnLogOut,imBtnWebsite, imBtnMenu, imBtnReserve;
     private BottomNavigationView bottomNavigationView;
@@ -92,6 +92,7 @@ public class OwnerRestaurantPage extends AppCompatActivity implements View.OnCli
 
     private void initialize() {
         imRestaurant = findViewById(R.id.imRestaurant);
+        imRating = findViewById(R.id.imRating);
         tvTitleNameRestaurant = findViewById(R.id.tvTitleNameRestaurant);
         tvRangePrice = findViewById(R.id.tvRangePrice);
         tvRating = findViewById(R.id.tvRating);
@@ -115,6 +116,20 @@ public class OwnerRestaurantPage extends AppCompatActivity implements View.OnCli
         alertDialog.setNegativeButton("No", this);
 
     }
+
+    private int getRatingDrawable(double rating) {
+        if (rating >= 5) {
+            return R.drawable.five_stars;
+        } else if (rating >= 4 && rating < 5) {
+            return R.drawable.four_stars;
+        } else if (rating >= 3 && rating < 4) {
+            return R.drawable.three_stars;
+        } else if (rating >= 2 && rating < 3) {
+            return R.drawable.two_stars;
+        } else {
+            return R.drawable.one_star;
+        }
+    }
     @Override
     public void onClick(View view) {
         if (view == btnLogOut) {
@@ -124,6 +139,7 @@ public class OwnerRestaurantPage extends AppCompatActivity implements View.OnCli
             }
         }
     }
+
 
     @Override
     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -136,6 +152,7 @@ public class OwnerRestaurantPage extends AppCompatActivity implements View.OnCli
                 String address = snapshot.child("address").getValue(String.class);
                 String phoneNumber = snapshot.child("phoneNumber").getValue(String.class);
                 String imageUrl = snapshot.child("image").getValue(String.class);
+                String restaurantId = snapshot.child("restaurantId").getValue(String.class); // Get restaurant ID
 
                 // show data
                 if (name != null) tvTitleNameRestaurant.setText(name);
@@ -144,7 +161,6 @@ public class OwnerRestaurantPage extends AppCompatActivity implements View.OnCli
                // if (website != null) textUpdateLinkWebSite.setText(website);
                 if (address != null) tvLocation.setText(address);
                 if (phoneNumber != null) tvContact.setText(phoneNumber);
-
                 if (imageUrl != null && !imageUrl.isEmpty()) {
                     // not working
                     Picasso.get()
@@ -152,8 +168,53 @@ public class OwnerRestaurantPage extends AppCompatActivity implements View.OnCli
 
                             .into(imRestaurant);
                 }
+
+                // Fetch and calculate restaurant rating based on reviews
+                if (restaurantId != null) {
+                    fetchAndDisplayRating(restaurantId);
+                }
             }
         }
+    }
+
+    private void fetchAndDisplayRating(String restaurantId) {
+        DatabaseReference reviewsRef = database.getReference("reviews");
+        Query reviewsQuery = reviewsRef.orderByChild("restaurantId").equalTo(restaurantId);
+
+        reviewsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    double totalRating = 0.0;
+                    int count = 0;
+
+                    for (DataSnapshot reviewSnapshot : dataSnapshot.getChildren()) {
+                        Double rating = reviewSnapshot.child("rating").getValue(Double.class);
+                        if (rating != null) {
+                            totalRating += rating;
+                            count++;
+                        }
+                    }
+
+                    // Calculate average rating
+                    double averageRating = (count > 0) ? totalRating / count : 0.0;
+
+                    // Update UI
+                    tvRating.setText(String.format("%.1f", averageRating)); // Display numeric average rating
+                    int drawableId = getRatingDrawable(averageRating); // Get the drawable ID based on the average rating
+                    imRating.setImageResource(drawableId); // Set the image resource for the ImageView
+                } else {
+                    // No reviews found
+                    tvRating.setText("N/A");
+                    imRating.setImageResource(R.drawable.one_star); // Optional: default "no rating" image
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle potential errors
+            }
+        });
     }
 
     @Override
@@ -172,4 +233,5 @@ public class OwnerRestaurantPage extends AppCompatActivity implements View.OnCli
         else if (button == DialogInterface.BUTTON_NEGATIVE)
             dialogInterface.dismiss();
     }
+
 }

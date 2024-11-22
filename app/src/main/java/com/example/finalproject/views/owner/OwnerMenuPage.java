@@ -2,6 +2,7 @@ package com.example.finalproject.views.owner;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,10 +11,13 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finalproject.R;
+import com.example.finalproject.database.Database;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class OwnerMenuPage extends AppCompatActivity {
 
+    private Database database;
+    private LinearLayout menuContainer;
     private BottomNavigationView bottomNavigationView;
 
     @Override

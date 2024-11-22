@@ -292,7 +292,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/imContact"
         app:layout_constraintStart_toEndOf="@+id/imContact"
         app:layout_constraintTop_toTopOf="@+id/imContact"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         />
 
     <View

@@ -43,7 +43,6 @@ public class ClientHomePage extends AppCompatActivity implements View.OnClickLis
     private ImageButton btnLogOut;
     private LinearLayout topRestaurantsLayout, nearMeLayout;
     private Database database;
-    Button btnProfilePage;
     AlertDialog.Builder alertDialog;
 
     private BottomNavigationView bottomNavigationView;
@@ -55,9 +54,6 @@ public class ClientHomePage extends AppCompatActivity implements View.OnClickLis
 
         btnLogOut = findViewById(R.id.btnLogOut);
         btnLogOut.setOnClickListener(this);
-
-        btnProfilePage = findViewById(R.id.btnProfilePage);
-        btnProfilePage.setOnClickListener(this);
 
         alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Log Out");
@@ -244,10 +240,6 @@ public class ClientHomePage extends AppCompatActivity implements View.OnClickLis
             if (!alertDialog.create().isShowing()) {
                 alertDialog.show();
             }
-        }
-        if (view.getId() == R.id.btnProfilePage) {
-            Intent intent = new Intent(this, ClientAccountPage.class);
-            startActivity(intent);
         }
     }
 }
