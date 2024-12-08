@@ -2,6 +2,8 @@ package com.example.finalproject.views.owner;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -80,29 +82,27 @@ public class OwnerReviewsPage extends AppCompatActivity {
         }
 
         String ownerId = currentUser.getUid();
-        sRef = database.getReference("reviews");
+        sRef = database.getReference("restaurants");
 
-        Query query = sRef.orderByChild("restaurantId").equalTo(ownerId);
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        // Get restaurants from owner
+        Query restaurantQuery = sRef.orderByChild("ownerId").equalTo(ownerId);
+        restaurantQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                List<Review> reviews = new ArrayList<>();
+                List<String> restaurantIds = new ArrayList<>();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Review review = snapshot.getValue(Review.class);
-                    if (review != null) {
-                        reviews.add(review);
-                        Log.d("Review", "Review: " + review.toString());
-                    }
+                    String restaurantId = snapshot.getKey();
+                    restaurantIds.add(restaurantId);
                 }
-                Log.d("Review", "Total de reviews found: " + reviews.size());
-                // Popular
-                LinearLayout reviewsContainer = findViewById(R.id.reviewsContainer);
-                populateReviewScrollView(reviewsContainer, reviews);
+                // Get reviews from restaurant
+                if (!restaurantIds.isEmpty()) {
+                    fetchReviewsForRestaurants(restaurantIds);
+                }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(OwnerReviewsPage.this, "Error to load reviews", Toast.LENGTH_SHORT).show();
+                Toast.makeText(OwnerReviewsPage.this, "Error to load restaurants", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -111,6 +111,34 @@ public class OwnerReviewsPage extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    // Get reviews from restaurant
+    private void fetchReviewsForRestaurants(List<String> restaurantIds) {
+        DatabaseReference reviewsRef = database.getReference("reviews");
+        for (String restaurantId : restaurantIds) {
+            Query reviewsQuery = reviewsRef.orderByChild("restaurantId").equalTo(restaurantId);
+            reviewsQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    List<Review> reviews = new ArrayList<>();
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Review review = snapshot.getValue(Review.class);
+                        if (review != null) {
+                            reviews.add(review);
+                        }
+                    }
+                    // Populate
+                    LinearLayout reviewsContainer = findViewById(R.id.reviewsContainer);
+                    populateReviewScrollView(reviewsContainer, reviews);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Toast.makeText(OwnerReviewsPage.this, "Error to load reviews", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 
     private void populateReviewScrollView(LinearLayout layout, List<Review> reviews) {
@@ -126,17 +154,51 @@ public class OwnerReviewsPage extends AppCompatActivity {
                 TextView reviewDate = reviewCard.findViewById(R.id.reviewDate);
                 TextView reviewText = reviewCard.findViewById(R.id.reviewText);
 
-                // Set values to the views
-                clientName.setText(review.getAuthor());
+                clientName.setTextColor(getResources().getColor(R.color.teal));
+                // to make underscore client name
+                SpannableString clientNameText = new SpannableString("Client Name");
+                clientNameText.setSpan(new UnderlineSpan(), 0, clientNameText.length(), 0);
+                clientName.setText(clientNameText);
+
+                reviewDate.setTextColor(getResources().getColor(R.color.teal));
+                reviewText.setTextColor(getResources().getColor(R.color.teal));
+
+                // replace author for client name before display
+                String authorId = review.getAuthor();
+                fetchUserNameFromId(authorId, clientName);
+
                 reviewDate.setText(review.getDate());
                 reviewText.setText(review.getComment());
 
                 // rating image
                 int ratingDrawable = getRatingDrawable(review.getRating());
                 ratingImage.setImageResource(ratingDrawable);
+                ratingImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 layout.addView(reviewCard);
             }
         }
+    }
+
+    private void fetchUserNameFromId(String userId, TextView clientNameTextView) {
+        DatabaseReference usersRef = database.getReference("users");
+        Query userQuery = usersRef.orderByKey().equalTo(userId);
+        userQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    DataSnapshot userSnapshot = dataSnapshot.getChildren().iterator().next();
+                    String userName = userSnapshot.child("name").getValue(String.class); // Supondo que o nome do usuário esteja em 'name'
+                    clientNameTextView.setText(userName); // Exibe o nome do usuário no lugar do author
+                } else {
+                    clientNameTextView.setText("Unknown User"); // Caso o usuário não seja encontrado
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(OwnerReviewsPage.this, "Error loading user data", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private int getRatingDrawable(double rating) {
