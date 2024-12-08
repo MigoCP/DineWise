@@ -1,8 +1,10 @@
 package com.example.finalproject.views.owner;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -10,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,6 +22,7 @@ import com.bumptech.glide.Glide;
 import com.example.finalproject.R;
 import com.example.finalproject.database.Database;
 import com.example.finalproject.models.Menu;
+import com.example.finalproject.views.start.IntroPage3;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,15 +34,18 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
-public class OwnerMenuPage extends AppCompatActivity implements ValueEventListener {
+public class OwnerMenuPage extends AppCompatActivity implements ValueEventListener, View.OnClickListener, DialogInterface.OnClickListener {
 
     //private Database database;
     private LinearLayout menuContainer;
     private BottomNavigationView bottomNavigationView;
+    ImageButton btnLogOut;
 
     private FirebaseDatabase database;
     private DatabaseReference restaurantRef, menuRef;
     private FirebaseAuth ownerAuth;
+    AlertDialog.Builder alertDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +81,7 @@ public class OwnerMenuPage extends AppCompatActivity implements ValueEventListen
             return insets;
         });
 
+        initialize();
         menuContainer = findViewById(R.id.menuContainer);
 
         ownerAuth = FirebaseAuth.getInstance();
@@ -85,6 +93,17 @@ public class OwnerMenuPage extends AppCompatActivity implements ValueEventListen
         String ownerId = ownerAuth.getCurrentUser().getUid();
         Query query = restaurantRef.orderByChild("ownerId").equalTo(ownerId);
         query.addListenerForSingleValueEvent(this);
+    }
+
+    private void initialize() {
+        btnLogOut = findViewById(R.id.btnLogOut);
+        btnLogOut.setOnClickListener(this);
+
+        alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Log Out ");
+        alertDialog.setMessage("Are you sure you want to sign out? (y/n)");
+        alertDialog.setPositiveButton("Yes", this);
+        alertDialog.setNegativeButton("No", this);
     }
 
     private void fetchMenuItems(List<String> menuIds) {
@@ -149,5 +168,27 @@ public class OwnerMenuPage extends AppCompatActivity implements ValueEventListen
     @Override
     public void onCancelled(@NonNull DatabaseError error) {
 
+    }
+
+    @Override
+    public void onClick(DialogInterface dialogInterface, int button) {
+        if (button == DialogInterface.BUTTON_POSITIVE) {
+            Intent intent = new Intent(this, IntroPage3.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+            finish();
+        }
+        else if (button == DialogInterface.BUTTON_NEGATIVE)
+            dialogInterface.dismiss();
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == btnLogOut) {
+            // Show the logout confirmation dialog
+            if (!alertDialog.create().isShowing()) {
+                alertDialog.show();
+            }
+        }
     }
 }
