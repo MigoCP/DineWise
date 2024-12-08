@@ -33,6 +33,8 @@ public class SearchPage extends AppCompatActivity implements View.OnClickListene
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_search_page);
 
+        initialize();
+
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
@@ -58,7 +60,8 @@ public class SearchPage extends AppCompatActivity implements View.OnClickListene
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        initialize();
+
+
     }
 
     private void initialize() {

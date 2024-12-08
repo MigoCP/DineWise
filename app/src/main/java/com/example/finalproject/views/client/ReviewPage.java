@@ -20,7 +20,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ReviewPage extends AppCompatActivity implements View.OnClickListener, DialogInterface.OnClickListener{
 
-    private ImageButton btnLogOut;
+    ImageButton btnLogOut;
     private BottomNavigationView bottomNavigationView;
     private Database database;
 
@@ -31,6 +31,8 @@ public class ReviewPage extends AppCompatActivity implements View.OnClickListene
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_review_page);
+
+        initialize();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -58,7 +60,7 @@ public class ReviewPage extends AppCompatActivity implements View.OnClickListene
             return insets;
         });
 
-        initialize();
+
     }
 
     private void initialize() {

@@ -68,7 +68,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="25dp"/>
 
-    <Button
+    <ImageButton
         android:id="@+id/btnLogOut"
         android:layout_width="30dp"
         android:layout_height="30dp"
@@ -78,6 +78,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@drawable/button_image_background_transparent"
         app:srcCompat="@drawable/log_out_user"
+        android:scaleType="centerInside"
         android:layout_marginEnd="20dp"
         android:layout_marginTop="25dp"/>
 
