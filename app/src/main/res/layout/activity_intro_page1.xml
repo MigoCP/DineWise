@@ -34,10 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="Discover
-        \nrecommended
-        \nrestaurants near you,
-        \nwherever you are."
+        android:text="@string/intro1"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -52,12 +49,12 @@
         android:id="@+id/btnContinue1"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:text="CONTINUE"
+        android:text="@string/continue1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="50dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@color/yellow"
         android:backgroundTint="@color/teal"
         android:textStyle="bold"

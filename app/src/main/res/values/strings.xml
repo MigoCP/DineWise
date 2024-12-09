@@ -1,5 +1,25 @@
 <resources>
     <string name="app_name">FinalProject</string>
+    <string name="intro1">Discover \nrecommended \nrestaurants near you, \nwherever you are.</string>
+    <string name="continue1">CONTINUE</string>
+    <string name="intro2">Get the latest reviews \nand exclusive deals \nfor your favorite \nrestaurants.</string>
+    <string name="continue2">CONTINUE</string>
+    <string name="title3">What are we doing today?</string>
+    <string name="clientIntro">I want to see restaurants</string>
+    <string name="ownerIntro">I\'m an owner</string>
+    <string name="backLogin">Back</string>
+    <string name="welcome_back_user">Welcome back User.</string>
+    <string name="email_address">Email address</string>
+    <string name="enter_email">Enter email</string>
+    <string name="password">Password</string>
+    <string name="enter_password">Enter password</string>
+    <string name="forgot_password">Forgot password...</string>
+    <string name="log_in">LOG IN</string>
+    <string name="back">Back</string>
+    <string name="welcome">Welcome</string>
+    <string name="for_foodies_and_takeout_lovers">For foodies and takeout lovers</string>
+    <string name="log_in_2">LOG IN</string>
+    <string name="sign_up_2">SIGN UP</string>
     <string-array name="distance_options">
         <item>Any Distance</item>
         <item>0-1 km</item>

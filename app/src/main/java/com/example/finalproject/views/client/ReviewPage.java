@@ -15,14 +15,16 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.finalproject.R;
 import com.example.finalproject.database.Database;
+import com.example.finalproject.views.authentication.SignUpPage;
 import com.example.finalproject.views.start.IntroPage3;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class ReviewPage extends AppCompatActivity implements View.OnClickListener, DialogInterface.OnClickListener{
 
-    ImageButton btnLogOut;
+    ImageButton btnLogOut, btnSAddReview;
     private BottomNavigationView bottomNavigationView;
     private Database database;
+    String user;
 
     AlertDialog.Builder alertDialog;
 
@@ -64,6 +66,8 @@ public class ReviewPage extends AppCompatActivity implements View.OnClickListene
     }
 
     private void initialize() {
+        btnSAddReview = findViewById(R.id.btnSAddReview);
+        btnSAddReview.setOnClickListener(this);
         btnLogOut = findViewById(R.id.btnLogOut);
         btnLogOut.setOnClickListener(this);
 
@@ -88,10 +92,15 @@ public class ReviewPage extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public void onClick(View view) {
+        Intent intent;
         if (view.getId() == R.id.btnLogOut) {
             if (!alertDialog.create().isShowing()) {
                 alertDialog.show();
             }
+        } else if (view.getId() == R.id.btnSAddReview) {
+            intent = new Intent(this, AddReviewPage.class);
+            //intent.putExtra("user", user);
+            startActivity(intent);
         }
     }
 }
