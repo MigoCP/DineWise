@@ -1,6 +1,7 @@
 package com.example.finalproject.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.finalproject.R;
 import com.example.finalproject.models.Restaurant;
+import com.example.finalproject.views.client.RestaurantInfoActivity;
 
 import java.util.List;
 
@@ -35,9 +37,21 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         Restaurant restaurant = restaurants.get(position);
         holder.restaurantName.setText(restaurant.getName());
         Glide.with(context).load(restaurant.getImage()).into(holder.restaurantImage);
+
+        //To see the menu of each restaurant when click, but there is a bug
+        //Can only see the menu of the Burger Station Restaurant
+        //set click listener
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, RestaurantInfoActivity.class);
+            intent.putExtra("restaurantId", restaurant.getRestaurantId()); // Pass ID
+            intent.putExtra("restaurantName", restaurant.getName());
+            intent.putExtra("restaurantImage", restaurant.getImage());
+            context.startActivity(intent);
+        });
     }
 
     @Override
