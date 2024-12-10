@@ -66,8 +66,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         />
 
-
-
+    <TextView
+        android:id="@+id/textReviewSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:gravity="start"
+        android:text="No reservations...."
+        android:fontFamily="@font/kanit_light"
+        android:textColor="@color/teal"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textReservations"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
 
     <View
         android:layout_width="0dp"
