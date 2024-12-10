@@ -3,23 +3,23 @@
     <item
         android:id="@+id/home"
         android:icon="@drawable/tabview_home"
-        android:title="Home"
+        android:title="@string/home_owner_menu"
         />
     <item
         android:id="@+id/menu"
         android:icon="@drawable/tabview_menu"
-        android:title="Menu"
+        android:title="@string/menu_owner"
         />
     <item
         android:id="@+id/reservation"
         android:icon="@drawable/tabview_reservation"
-        android:title="Reservation" />
+        android:title="@string/reservation_owner" />
     <item
         android:id="@+id/review"
         android:icon="@drawable/tabview_review_owner"
-        android:title="Review" />
+        android:title="@string/review_owner" />
     <item
         android:id="@+id/account"
         android:icon="@drawable/tabview_account"
-        android:title="Account" />
+        android:title="@string/account_owner" />
 </menu>

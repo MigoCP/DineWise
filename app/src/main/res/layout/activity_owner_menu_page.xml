@@ -33,13 +33,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lobster_regular"
-        android:text="DineWise"
+        android:text="@string/dinewiseOwnerMenu"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:layout_marginTop="20dp" />
 
     <ImageView
@@ -76,7 +76,7 @@
         android:fontFamily="@font/kanit_medium"
         android:shadowColor="@color/teal"
         android:shadowRadius="4"
-        android:text="Restaurant menu"
+        android:text="@string/restaurant_menu"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"

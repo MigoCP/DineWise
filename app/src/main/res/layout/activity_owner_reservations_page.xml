@@ -35,13 +35,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/lobster_regular"
-        android:text="DineWise"
+        android:text="@string/dinewiseOwnerReserve"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="40dp"
+        android:textSize="40sp"
         android:layout_marginTop="20dp" />
 
 

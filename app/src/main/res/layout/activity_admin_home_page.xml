@@ -83,7 +83,7 @@
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:background="@drawable/custom_border"
-            android:hint="Search"
+            android:hint="@string/searchAdmin"
             android:paddingStart="40dp"
             android:textColorHint="@color/teal"
             />
@@ -93,7 +93,7 @@
         android:id="@+id/textTopRestaurants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Top Restaurants"
+        android:text="@string/top_restaurants_admin"
         android:fontFamily="@font/kanit_medium"
         android:shadowColor="@color/teal"
         android:shadowRadius="4"
@@ -143,7 +143,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Fast food"
+                    android:text="@string/fast_food"
                     android:textAlignment="center"
                     android:textColor="@color/teal"
                     />
@@ -168,7 +168,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="Thai food"
+                    android:text="@string/thai_food"
                     android:textAlignment="center"
                     android:textColor="@color/teal"
                     />
@@ -181,7 +181,7 @@
         android:id="@+id/textNearMe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Near me"
+        android:text="@string/near_me_admin_home"
         android:fontFamily="@font/kanit_medium"
         app:layout_constraintStart_toStartOf="parent"
         android:shadowColor="@color/teal"
@@ -269,7 +269,7 @@
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name: "
+        android:text="@string/name_admin_home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollViewNearMe" />
 
@@ -277,7 +277,7 @@
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email: "
+        android:text="@string/_admin_home"
         app:layout_constraintTop_toBottomOf="@id/tvName"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="5dp"/>
@@ -286,7 +286,7 @@
         android:id="@+id/tvPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password: "
+        android:text="@string/password_admin_home"
         app:layout_constraintTop_toBottomOf="@id/tvEmail"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="5dp"/>
