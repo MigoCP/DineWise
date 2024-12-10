@@ -17,6 +17,7 @@ public class Restaurant {
     private String phoneNumber;
     private String website; // Added attribute
     private String image;
+    private String createdAt; // Add this field
 
     public Restaurant() {
     }
@@ -36,6 +37,15 @@ public class Restaurant {
         this.phoneNumber = phoneNumber;
         this.website = website; // Set in constructor
         this.image = image;
+        this.createdAt = createdAt;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 
     // Getters and Setters
